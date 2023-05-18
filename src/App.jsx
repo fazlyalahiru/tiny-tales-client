@@ -10,11 +10,11 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='max-w-7xl w-full mx-auto '>
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-    </>
+    </div>
   )
 }
 
