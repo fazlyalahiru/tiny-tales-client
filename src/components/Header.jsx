@@ -7,7 +7,6 @@ import { AuthContext } from '../providers/AuthProvider';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext)
-    console.log(user);
     const handleLogOut = () => {
         logOut()
             .then(result => {
@@ -19,41 +18,40 @@ const Header = () => {
     }
     const navLink = <>
         <Link to="/">
-            <a
-                href="#"
+            <p
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
             >
                 Home
-            </a>
+            </p>
         </Link>
-        <Link to="/">
-            <a
-                href="#"
+        <Link to="/all-toys">
+            <p
+                
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
             >
                 All Toys
-            </a>
+            </p>
         </Link>
         <Link to="/">
-            <a
+            <p
                 href="#"
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
             >
                 My Toys
-            </a>
+            </p>
         </Link>
-        <Link to="/">
-            <a
+        <Link to="/add-toy">
+            <p
                 href="#"
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
             >
                 Add a Toy
-            </a>
+            </p>
         </Link>
     </>
     return (
 
-        <nav className="bg-[#E9F8FF]">
+        <nav className="bg-[#E9F8FF] border-b">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 ">
                     <Link to="/" className="flex items-center flex-shrink-0">
@@ -78,7 +76,7 @@ const Header = () => {
                         
                             <div className='avatar'>
                             <div className="w-8 rounded-full">
-                               { user&&<img title={user?.displayName} src={user?.photoURL} />}
+                               { user&&<img title={user.displayName?user.displayName:'No name'} src={user?.photoURL} />}
                             </div>
                         </div>
                         
