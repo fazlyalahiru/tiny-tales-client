@@ -49,12 +49,12 @@ const AddToy = () => {
                     <input type="number" name='price' placeholder="Price in $" className="input border border-gray-300 w-full block" />
                 </div>
                 <div className='flex p-2 gap-2'>
-                    <input type="text" name='description' placeholder="Product Description" className="input border border-gray-300 w-full block" />
                     <input type="text" name='quantity' placeholder="Available Quantity" className="input border border-gray-300 w-full block" />
+                    <input type="url" name='toyImg' placeholder="Toy URL" className="input border border-gray-300 w-full block " />
                 </div>
                 <div className='p-2'>
-                    <input type="url" name='toyImg' placeholder="Toy URL" className="input border border-gray-300 w-full block my-2" />
-                    <input className="btn bg-black hover:bg-gray-800 w-full my-2" type="submit" value="Add Toy" />
+                    <input type="text" name='description' placeholder="Product Description" className="input border border-gray-300 w-full block my-2 h-[80px]" />
+                    <input rows="4" className="btn bg-black hover:bg-gray-800 w-full my-4" type="submit" value="Add Toy" />
                 </div>
 
             </form>
