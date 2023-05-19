@@ -32,7 +32,7 @@ const Header = () => {
                 All Toys
             </p>
         </Link>
-        <Link to="/">
+        <Link to="/my-toys">
             <p
                 href="#"
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
