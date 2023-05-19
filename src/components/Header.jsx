@@ -53,7 +53,7 @@ const Header = () => {
     </>
     return (
 
-        <nav className="bg-[#e9f8ff]">
+        <nav className="bg-[#E9F8FF]">
             <div className=" mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 ">
                     <Link to="/" className="flex items-center flex-shrink-0">
@@ -75,11 +75,13 @@ const Header = () => {
                     </div>
                     <div className='flex items-center justify-center gap-4'>
 
-                        <div className='avatar'>
-                            <div className="w-6 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        
+                            <div className='avatar'>
+                            <div className="w-8 rounded-full">
+                               { user&&<img title={user?.displayName} src={user?.photoURL} />}
                             </div>
                         </div>
+                        
                         {
                             user ? <button onClick={handleLogOut} className='bg-[#8b3dff] text-white px-2 md:px-6 py-1 md:py-2 rounded'>Logout</button> : <Link to='/login'>
                                 <button className='bg-[#8b3dff] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
