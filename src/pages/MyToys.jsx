@@ -6,7 +6,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [myToys, setMyToys] = useState([])
     useEffect(() => {
-        fetch(`https://tiny-tales-server.vercel.app/my-toys/${user?.email}`)
+        fetch(`http://localhost:5000/my-toys/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
@@ -16,7 +16,7 @@ const MyToys = () => {
 
     const handleDeleteToy = (id) => {
         console.log(id);
-        fetch(`https://tiny-tales-server.vercel.app/toy/${id}`, {
+        fetch(`http://localhost:5000/toy/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -51,7 +51,7 @@ const MyToys = () => {
                         <tbody>
 
                             {
-                                myToys.map((toy, index) => <tr>
+                                myToys.map((toy, index) => <tr key={index}>
                                     <th>{index + 1}</th>
                                     <td>{toy.sellerName}</td>
                                     <td>{toy.toyName}</td>

@@ -10,7 +10,7 @@ const ToyDetails = () => {
     const { _id, toyImg, sellerName, toyName, subCategory, price, sellerEmail, quantity, description, rating } = loadedSingleToy;
     console.log(loadedSingleToy);
     return (
-        <div class="grid grid-cols-3 gap-4 py-12">
+        <div className="grid grid-cols-3 gap-4 py-12 max-w-6xl mx-auto">
             <div>
                 <img src={toyImg} alt="" className='w-96 h-80 border rounded shadow' />
             </div>

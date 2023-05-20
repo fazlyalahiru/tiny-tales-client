@@ -14,6 +14,7 @@ import EditToy from "../pages/EditToy";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import Blog from "../pages/Blog";
+import Jobs from "../pages/Jobs";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://tiny-tales-server.vercel.app/toy/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             },
             {
                 path: '/my-toys',
@@ -52,11 +53,16 @@ const router = createBrowserRouter([
             {
                 path: '/edit-toy/:id',
                 element: <EditToy></EditToy>,
-                loader: ({ params }) => fetch(`https://tiny-tales-server.vercel.app/toy/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             },
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+
+            {
+                path: '/jobs',
+                element: <Jobs></Jobs>
             }
         ]
     },

@@ -4,7 +4,7 @@ import AllToysSingleRow from '../components/AllToysSingleRow';
 const AllToys = () => {
     const [allToys, setAllToys] = useState([])
     useEffect(() => {
-        fetch('https://tiny-tales-server.vercel.app/all-toys')
+        fetch('http://localhost:5000/all-toys')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])

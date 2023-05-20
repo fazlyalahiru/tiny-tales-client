@@ -38,7 +38,7 @@ const AddToy = () => {
         const toyObject = { sellerName, sellerEmail, toyName, toyImg, rating, quantity, subCategory, price, description }
         console.log(toyObject);
 
-        fetch('https://tiny-tales-server.vercel.app/upload-toy', {
+        fetch('http://localhost:5000/upload-toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -22,7 +22,7 @@ const EditToy = () => {
         const updatedToyObject = { sellerName, sellerEmail, toyName, toyImg, rating, quantity, subCategory, price, description }
         console.log(updatedToyObject);
 
-        fetch(`https://tiny-tales-server.vercel.app/toy/${id}`, {
+        fetch(`http://localhost:5000/toy/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
