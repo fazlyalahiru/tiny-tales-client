@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
-import MyToysSingleRow from '../components/MyToysSingleRow';
+import { Link } from 'react-router-dom';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -10,7 +10,26 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
-    console.log(myToys);
+
+
+    // Handle delte toy
+
+    const handleDeleteToy = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/toy/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    alert('deleted successfully');
+                    const remaining = myToys.filter(toy => toy._id ==! id); 
+                    setMyToys(remaining)
+                }
+            })
+    }
+
+
     return (
         <div>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>All Toys</h4>
@@ -30,9 +49,30 @@ const MyToys = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                             {
-                                myToys.map((toy, index) => <MyToysSingleRow toy={toy} index={index} key={index}></MyToysSingleRow>)
+                                myToys.map((toy, index) => <tr>
+                                    <th>{index + 1}</th>
+                                    <td>{toy.sellerName}</td>
+                                    <td>{toy.toyName}</td>
+                                    <td>{toy.subCategory}</td>
+                                    <td>{toy.price ? `$${toy.price}` : 'NA'}</td>
+                                    <td>{toy.quantity ? toy.quantity : 'NA'}</td>
+                                    <td>
+                                        <div className='flex gap-4'>
+                                            <div>
+                                                <Link to={`/toy/${toy._id}`}>
+                                                    <button className='text-[#8b3dff]'>Edit</button>
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => handleDeleteToy(toy._id)} className='text-red-700'>Delete</button>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                )
                             }
 
 
