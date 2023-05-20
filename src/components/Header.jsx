@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../public/images/logo.png'
 import { Transition } from "@headlessui/react";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,37 +18,42 @@ const Header = () => {
             })
     }
     const navLink = <>
-        <Link to="/">
-            <p
-                className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
-            >
-                Home
-            </p>
-        </Link>
-        <Link to="/all-toys">
-            <p
-                
-                className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
-            >
-                All Toys
-            </p>
-        </Link>
-        <Link to="/my-toys">
-            <p
-                href="#"
-                className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
-            >
-                My Toys
-            </p>
-        </Link>
-        <Link to="/add-toy">
+
+        <NavLink
+            to='/'
+            className={({ isActive }) => (isActive ? 'hover:bg-gray-800 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium  mr-2' : 'hover:bg-gray-800 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium mr-2')}
+        >
+            Home
+        </NavLink>
+
+
+        <NavLink
+            to='/all-toys'
+            className={({ isActive }) => (isActive ? 'bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium mr-2' : 'hover:bg-gray-800 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium mr-2')}
+        >
+            All Toys
+        </NavLink>
+        {/* <Link to="/add-toy">
             <p
                 href="#"
                 className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
             >
                 Add a Toy
             </p>
-        </Link>
+        </Link> */}
+
+        <NavLink
+            to='/my-toys'
+            className={({ isActive }) => (isActive ? 'bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium mr-2' : 'hover:bg-gray-800 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium mr-2')}
+        >
+            My Toys
+        </NavLink>
+        <NavLink
+            to='/blog'
+            className={({ isActive }) => (isActive ? 'bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium' : 'hover:bg-gray-800 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium')}
+        >
+            Blog
+        </NavLink>
     </>
     return (
 
@@ -59,7 +65,7 @@ const Header = () => {
                             className="h-8 w-8"
                             src={logo}
                         />
-                        <h3 className='font-logo font-extrabold md:text-3xl text-xl ml-2 text-[#00d1b2]'>TinyTales.</h3>
+                        <h3 className='font-logo font-extrabold md:text-3xl text-xl ml-2 text-gray-800 hover:text-black'>TinyTales<sup className='text-xs ml-1'>TM</sup></h3>
                     </Link>
                     <div className="flex items-center ">
                         <div className="hidden md:block w-full ">
@@ -73,15 +79,19 @@ const Header = () => {
                     </div>
                     <div className='flex items-center justify-center gap-4'>
 
-                        
-                            <div className='avatar'>
-                            <div className="w-8 rounded-full">
-                               { user&&<img title={user.displayName?user.displayName:'No name'} src={user?.photoURL} />}
-                            </div>
-                        </div>
-                        
+
+
+
                         {
-                            user ? <button onClick={handleLogOut} className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded'>Logout</button> : <Link to='/login'>
+                            user ? <div className='flex justify-center items-center gap-4'>
+                                <Link to="/add-toy" className='bg-gray-800 hover:bg-black text-white px-2 md:px-6 py-1 md:py-2 rounded hidden md:block'>Add a toy <b>＋</b></Link>
+                                <div className='avatar'>
+                                    <div className="w-8 rounded-full">
+                                        {user && <img title={user.displayName ? user.displayName : 'No name'} src={user?.photoURL} />}
+                                    </div>
+                                </div>
+                                <FaSignOutAlt title='Logout' onClick={handleLogOut} className='cursor-pointer'></FaSignOutAlt>
+                            </div> : <Link to='/login'>
                                 <button className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
                             </Link>
 
@@ -148,6 +158,14 @@ const Header = () => {
                     <div className="md:hidden" id="mobile-menu">
                         <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black flex flex-col gap-4">
                             {navLink}
+                            <Link to="/add-toy">
+                                <p
+                                    href="#"
+                                    className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
+                                >
+                                    Add a Toy
+                                </p>
+                            </Link>
                         </div>
                     </div>
                 )}

@@ -13,6 +13,7 @@ import MyToys from "../pages/MyToys";
 import EditToy from "../pages/EditToy";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import Blog from "../pages/Blog";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: '/edit-toy/:id',
                 element: <EditToy></EditToy>,
                 loader: ({ params }) => fetch(`https://tiny-tales-server.vercel.app/toy/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     },
