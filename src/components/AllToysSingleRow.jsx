@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const AllToysSingleRow = ({ toy, index }) => {
     const { _id, sellerName, toyName, subCategory, price, quantity } = toy;
-    console.log(toy);
     return (
         <tr>
             <th>{index + 1}</th>

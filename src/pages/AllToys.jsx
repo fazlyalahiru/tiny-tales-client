@@ -8,7 +8,6 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])
-    console.log(allToys);
     return (
         <div>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>All Toys</h4>

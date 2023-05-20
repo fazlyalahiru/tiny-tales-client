@@ -6,7 +6,7 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 const Registration = () => {
-    const { createUser, googleLogIn } = useContext(AuthContext)
+    const { createUser, googleLogIn, setLoading } = useContext(AuthContext)
     const auth = getAuth(app);
 
     const handleRegister = (event) => {
@@ -16,16 +16,17 @@ const Registration = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log(name, email, photo, password);
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                
                 form.reset()
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
-                }).then(() => {
-                    console.log(displayName);
-                    // setLoading(true)
+                }).then((result) => {
+                    setLoading(true)
+                    alert('inside regiistraiton then')
+                    
+
                     // return toast.success('User created successfully');
                 }).catch((error) => {
                     // return toast.error({ error })
