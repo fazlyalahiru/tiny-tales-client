@@ -38,7 +38,7 @@ const Login = () => {
     }
     return (
         <div className='flex justify-center border my-4 rounded-sm py-12 '>
-            <div className='w-1/3  bg-[#8b3dff] shadow md:rounded-l'>
+            <div className='w-1/3  bg-[#00d1b2] shadow md:rounded-l'>
                 <img src={login} alt="" />
             </div>
             <div className=' w-1/3 grid items-center bg-[#E9F8FF] shadow md:rounded-r'>

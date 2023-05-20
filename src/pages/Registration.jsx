@@ -47,8 +47,8 @@ const Registration = () => {
             })
     }
     return (
-        <div className='flex justify-center border bg-gradient-to-r from-[#5e27c4] to-[#8b3dff] py-12 '>
-            <div className='w-1/3  bg-[#8b3dff] shadow md:rounded-l'>
+        <div className='flex justify-center border bg-gradient-to-r from-[#5e27c4] to-[#00d1b2] py-12 '>
+            <div className='w-1/3  bg-[#00d1b2] shadow md:rounded-l'>
                 <img src={login} alt="" />
             </div>
             <div className=' w-1/3 grid items-center bg-white shadow md:rounded-r'>

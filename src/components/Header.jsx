@@ -59,7 +59,7 @@ const Header = () => {
                             className="h-8 w-8"
                             src={logo}
                         />
-                        <h3 className='font-logo font-extrabold md:text-3xl text-xl ml-2 text-[#8b3dff]'>TinyTales.</h3>
+                        <h3 className='font-logo font-extrabold md:text-3xl text-xl ml-2 text-[#00d1b2]'>TinyTales.</h3>
                     </Link>
                     <div className="flex items-center ">
                         <div className="hidden md:block w-full ">
@@ -81,8 +81,8 @@ const Header = () => {
                         </div>
                         
                         {
-                            user ? <button onClick={handleLogOut} className='bg-[#8b3dff] text-white px-2 md:px-6 py-1 md:py-2 rounded'>Logout</button> : <Link to='/login'>
-                                <button className='bg-[#8b3dff] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
+                            user ? <button onClick={handleLogOut} className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded'>Logout</button> : <Link to='/login'>
+                                <button className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
                             </Link>
 
 

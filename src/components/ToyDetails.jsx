@@ -23,9 +23,9 @@ const ToyDetails = () => {
                     fullSymbol={<FaStar></FaStar>}
                 />
                 <h3 className='text-5xl font-logo font-bold'>{toyName}</h3>
-                <p className='text-[#8b3dff] text-2xl font-semibold py-2'>${price}.00</p>
+                <p className='text-[#00d1b2] text-2xl font-semibold py-2'>${price}.00</p>
                 <p>{description}</p>
-                <button className='bg-[#8b3dff] text-white px-2 md:px-6 py-1 md:py-2 rounded my-4'>Order now</button>
+                <button className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded my-4'>Order now</button>
 
                 <p className='text-gray-500'>Category: {subCategory}</p>
                 <p className='text-gray-500'>Stock: {quantity}</p>
