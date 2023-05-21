@@ -38,11 +38,11 @@ const Login = () => {
     const handleSignWithGoogle = () => {
         googleLogIn()
             .then(result => {
-                form.reset()
+                console.log(result);
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                setError(error);
+                console.log(error);
             })
     }
     const handleError = () => {
@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Tiny Tales - Login</title>
+                <title>Tiny Tales | Login</title>
             </Helmet>
             <div className='md:flex justify-center border my-4 rounded-sm py-12 '>
                 <div className='md:w-1/3 bg-white justify-center items-center grid shadow md:rounded-l'>

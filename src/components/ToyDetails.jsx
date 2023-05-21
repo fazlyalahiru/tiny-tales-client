@@ -27,8 +27,10 @@ const ToyDetails = () => {
                 <p>{description}</p>
                 <button className='bg-[#570df8] text-white px-2 md:px-6 py-1 md:py-2 rounded my-4'>Order now</button>
 
-                <p className='text-gray-500'>Category: {subCategory}</p>
-                <p className='text-gray-500'>Stock: {quantity}</p>
+                <p className='text-gray-500'><b>Category:</b> {subCategory}</p>
+                <p className='text-gray-500'><b>Stock:</b> {quantity}</p>
+                <p className='text-gray-500'><b>Seller name:</b> {sellerName}</p>
+                <p className='text-gray-500'><b>Seller email:</b> {sellerEmail}</p>
 
             </div>
         </div>

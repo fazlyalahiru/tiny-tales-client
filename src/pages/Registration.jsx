@@ -58,7 +58,7 @@ const Registration = () => {
     return (
         <>
             <Helmet>
-                <title>Tiny Tales - My toys</title>
+                <title>Tiny Tales | My toys</title>
             </Helmet>
 
             <div className='md:flex justify-center border  my-4 py-12 '>

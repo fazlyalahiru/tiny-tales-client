@@ -9,7 +9,7 @@ const ErrorPage = () => {
     return (
         <>
         <Helmet>
-                <title>Tiny Tales - 404 not found</title>
+                <title>Tiny Tales | 404 not found</title>
             </Helmet>
             <div className='min-h-screen container flex flex-col items-center justify-center px-5 mx-auto'>
 

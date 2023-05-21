@@ -30,7 +30,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Tiny Tales - Home</title>
+                <title>Tiny Tales | Home</title>
             </Helmet>
             <div className="md:grid grid-cols-3 pt-8" data-aos="fade-in">
                 <div className="col-span-2 mt-12 px-6">

@@ -62,7 +62,7 @@ const AddToy = () => {
     return (
         <div>
             <Helmet>
-                <title>Tiny Tales - Add toy</title>
+                <title>Tiny Tales | Add toy</title>
             </Helmet>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Add A toy</h4>
             <form onSubmit={handleAddToy} className='max-w-3xl mx-auto pb-6'>

@@ -29,13 +29,13 @@ const AllToys = () => {
     return (
         <>
             <Helmet>
-                <title>Tiny Tales - All toys</title>
+                <title>Tiny Tales | All toys</title>
             </Helmet>
 
             <div>
                 <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>All Toys</h4>
 
-                <form className='w-1/2 mx-auto' onSubmit={handleSeach}>
+                <form className='md:w-1/2 md:mx-auto mx-4' onSubmit={handleSeach}>
                     <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div className="relative">
                         {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

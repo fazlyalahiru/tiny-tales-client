@@ -69,7 +69,7 @@ const MyToys = () => {
     return (
         <div>
             <Helmet>
-                <title>Tiny Tales - My toys</title>
+                <title>Tiny Tales | My toys</title>
             </Helmet>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Your Toys</h4>
             <div className='flex gap-6 justify-end items-center '>
@@ -88,13 +88,13 @@ const MyToys = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th>No.</th>
-                                <th>Seller</th>
-                                <th>Toy Name</th>
-                                <th>Sub-category</th>
-                                <th>Price</th>
-                                <th>Available Quantity</th>
-                                <th>Action</th>
+                                <th className='bg-gray-800 text-white'>No.</th>
+                                <th className='bg-gray-800 text-white'>Seller</th>
+                                <th className='bg-gray-800 text-white'>Toy Name</th>
+                                <th className='bg-gray-800 text-white'>Sub-category</th>
+                                <th className='bg-gray-800 text-white'>Price</th>
+                                <th className='bg-gray-800 text-white'>Available Quantity</th>
+                                <th className='bg-gray-800 text-white'>Action</th>
                             </tr>
                         </thead>
                         <tbody>

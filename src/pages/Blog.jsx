@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <div>
             <Helmet>
-                <title>Tiny Tales - Blog</title>
+                <title>Tiny Tales | Blog</title>
             </Helmet>
             <h4 className="text-white text-center py-12 font-semibold md:text-4xl bg-gray-800 mt-6 text-2xl">Blog</h4>
 
