@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddToy = () => {
     // dropdown select option starts
@@ -60,6 +61,9 @@ const AddToy = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Tiny Tales - Add toy</title>
+            </Helmet>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Add A toy</h4>
             <form onSubmit={handleAddToy} className='max-w-3xl mx-auto pb-6'>
                 <div className='flex p-2 gap-2'>

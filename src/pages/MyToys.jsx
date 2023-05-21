@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 
 const MyToys = () => {
@@ -67,6 +68,9 @@ const MyToys = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Tiny Tales - My toys</title>
+            </Helmet>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Your Toys</h4>
             <div className='flex gap-6 justify-end items-center '>
 

@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link, useRouteError } from 'react-router-dom'
 import errorImg from '../../public/images/error.png'
+import { Helmet } from 'react-helmet'
 
 
 const ErrorPage = () => {
     const { error } = useRouteError()
     return (
         <>
+        <Helmet>
+                <title>Tiny Tales - 404 not found</title>
+            </Helmet>
             <div className='min-h-screen container flex flex-col items-center justify-center px-5 mx-auto'>
 
                 <div className='max-w-md text-center'>

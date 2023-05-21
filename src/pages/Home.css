@@ -14,3 +14,11 @@
     font-weight: 800;
     text-transform: uppercase;
 }
+.carousel img{
+height: 100px;
+padding: 10px 5px;
+
+}
+.stats{
+    border-radius: 0;
+}

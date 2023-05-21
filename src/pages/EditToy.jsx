@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const EditToy = () => {
     const { user } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const EditToy = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Tiny Tales - Edit toy</title>
+            </Helmet>
             <h4 className='text-center font-logo text-3xl font-bold uppercase pt-8'>Edit: {toyName}</h4>
             <p className='text-center pb-8 pt-2'>You can only edit <b>Price</b>, <b>Available quantity</b> and <b>Product description</b></p>
             <form onSubmit={handleAddToy} className='max-w-3xl mx-auto pb-6'>
