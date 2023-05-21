@@ -7,7 +7,7 @@ const AllToys = () => {
     const [allToys, setAllToys] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-toys')
+        fetch('https://tiny-tales-server.vercel.app/all-toys')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])
@@ -18,7 +18,7 @@ const AllToys = () => {
         event.preventDefault();
         const form = event.target;
         const searchText = form.search.value;
-        fetch(`http://localhost:5000/all-toys/${searchText}`)
+        fetch(`https://tiny-tales-server.vercel.app/all-toys/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data);

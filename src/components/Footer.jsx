@@ -83,9 +83,9 @@ const Footer = () => {
                         <p className='py-2 text-sm'>Tity Tales is a multi-vendor e-commerce website. Here you will get all the accesories for your beloved baby. </p>
                     </div>
                 </div>
-                <div className='text-gray-500 text-xs text-center md:flex md:justify-between my-container py-4'>
+                <div className='text-gray-500 text-xs text-center md:flex md:justify-between py-4'>
                     <p >@2023 Tiny Tales <sup>TM</sup>. All Rights Reserved</p>
-                    <div className='flex gap-4'>
+                    <div className='flex gap-4 my-4 md:my-1 justify-center'>
                         <a href="https://www.linkedin.com/in/fazlyalahiru/"><FaLinkedin className='text-xl '></FaLinkedin></a>
                         <a href="https://github.com/fazlyalahiru"><FaGithub className='text-xl'></FaGithub></a>
                         <a href="https://www.facebook.com/fazlyalahiru/"><FaFacebook className='text-xl'></FaFacebook></a>

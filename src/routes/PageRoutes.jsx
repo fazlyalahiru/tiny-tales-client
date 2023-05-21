@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://tiny-tales-server.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/my-toys',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path: '/edit-toy/:id',
                 element: <EditToy></EditToy>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://tiny-tales-server.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/blog',

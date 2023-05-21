@@ -17,7 +17,7 @@ const Home = () => {
         setActiveTab(tabName);
     };
     useEffect(() => {
-        fetch(`http://localhost:5000/filtered-toys/${activeTab}`)
+        fetch(`https://tiny-tales-server.vercel.app/filtered-toys/${activeTab}`)
             .then(res => res.json())
             .then(data => setFilteredData(data))
         // console.log(filteredData);
@@ -32,11 +32,11 @@ const Home = () => {
             <Helmet>
                 <title>Tiny Tales - Home</title>
             </Helmet>
-            <div className="grid grid-cols-3 pt-8" data-aos="fade-in">
+            <div className="md:grid grid-cols-3 pt-8" data-aos="fade-in">
                 <div className="col-span-2 mt-12 px-6">
                     <div className=" h-full flex-col items-center">
                         <h4 className=" font-bubble hero-text">Unleash Your Creativity, <br /> Brick by Brick</h4>
-                        <p className="my-6 font-semibold text-lg">Tiny Tales provides amazing LEGO toys for your beloved baby! </p>
+                        <p className="md:my-6 my-4 font-semibold text-lg">Tiny Tales provides amazing LEGO toys for your beloved baby! </p>
                         <Link to="/all-toys" className='bg-[#570df8] hover:bg-black text-white px-2 md:px-6 py-1 md:py-2 rounded'>All Products</Link>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="px-6 pb-12" data-aos="fade-in">
-                <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800">TinyTales at a glance</h4>
+                <h4 className="text-white text-center py-12 font-semibold md:text-4xl text-2xl bg-gray-800">TinyTales at a glance</h4>
                 <div className="stats shadow w-full text-center">
 
                     <div className="stat ">
@@ -69,7 +69,7 @@ const Home = () => {
                 </div>
             </div>
             <div className=" bg-[#e9f8ff] rounded-sm px-6 " data-aos="fade-in">
-                <h4 className="text-white text-center pt-12 py-6 font-semibold text-4xl bg-gray-800">Shop By Category</h4>
+                <h4 className="text-white text-center pt-12 py-6 font-semibold md:text-4xl text-2xl bg-gray-800">Shop By Category</h4>
                 <div className="tabs tabs-boxed justify-center bg-gray-800 border-0">
                     <a onClick={() => handleActiveTab("LEGO City")} className={`tab ${activeTab == "LEGO City" ? "tab-active" : " "}`}>LEGO City</a>
                     <a onClick={() => handleActiveTab("LEGO Star Wars")} className={`tab  ${activeTab == "LEGO Star Wars" ? "tab-active" : " "}`}>LEGO Star Wars</a>
@@ -77,10 +77,10 @@ const Home = () => {
 
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 justify-center items-center bg-white px-4 py-6">
+                <div className="md:grid grid-cols-3 gap-6 justify-center items-center bg-white px-4 py-6">
                     {filteredData.map(toy => <div >
-                        <div className="my-6 card card-compact w-96 bg-base-100 shadow-xl">
-                            <figure><img className="h-64" src={toy.toyImg} alt="Shoes" /></figure>
+                        <div className="my-6 card card-compact md:w-96 bg-base-100 shadow-xl">
+                            <figure><img className="md:h-64" src={toy.toyImg} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{toy.toyName}</h2>
                                 <p>{toy.description}</p>
@@ -106,7 +106,7 @@ const Home = () => {
 
 
             <div className="rounded-sm px-6 " data-aos="fade-in">
-                <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800 mt-6">Hot Producats</h4>
+                <h4 className="text-white text-center py-12 font-semibold md:text-4xl text-2xl bg-gray-800 mt-6">Hot Producats</h4>
 
                 <div className="px-5 lg:px-32 lg:pt-12 bg-white py-6">
                     <div className="-m-1 flex flex-wrap md:-m-2">
@@ -154,7 +154,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="pb-12 px-6" data-aos="fade-in">
-                <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800 mt-6">Our Partners</h4>
+                <h4 className="text-white text-center py-12 font-semibold md:text-4xl text-2xl bg-gray-800 mt-6">Our Partners</h4>
                 <div className="carousel carousel-end bg-white px-4 py-6">
                     <div className="carousel-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/408px-Google_2015_logo.svg.png?20160213081640" alt="Drink" />

@@ -1,7 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import login from '../../public/images/login.jpg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { FaTimes } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -22,20 +25,33 @@ const Login = () => {
                 console.log(loggedInUser);
                 form.reset()
                 navigate(from, { replace: true })
+                Swal.fire(
+                    'Good job!',
+                    'Please continue browsing',
+                    'success'
+                  )
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message)
             })
     }
 
     const handleSignWithGoogle = () => {
         googleLogIn()
             .then(result => {
-                console.log(result.user);
+                form.reset()
+                navigate(from, { replace: true })
+                Swal.fire(
+                    'Login Successful!',
+                    'success'
+                  )
             })
             .catch(error => {
-                console.log(error);
+                setError(error);
             })
+    }
+    const handleError = () => {
+        setError(null)
     }
     return (
         <>
@@ -46,8 +62,15 @@ const Login = () => {
                 <div className='w-1/3 bg-white justify-center items-center grid shadow md:rounded-l'>
                     <img src={login} alt="" />
                 </div>
-                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-r'>
-                    <form onSubmit={handleSignIn} className='grid gap-4  py-14 rounded px-4'>
+                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-r py-14 '>
+                    <h4 className='text-center text-3xl font-semibold pb-6'>Please login</h4>
+                    <form onSubmit={handleSignIn} className='grid gap-4  rounded px-4'>
+                        {
+                            error && <div className='flex w-full bg-[#570df8] items-center justify-between md:px-6 px-2 text-sm md:text-base rounded'>
+                                <p className=' text-white  py-2 rounded'>{error}</p>
+                                <FaTimes className='text-white cursor-pointer' onClick={handleError}></FaTimes>
+                            </div>
+                        }
                         <input type="email" name='email' placeholder="Email" className="input border border-gray-300 w-full block" />
                         <input type="password" name='password' placeholder="Password" className="input border border-gray-300 w-full block" />
 

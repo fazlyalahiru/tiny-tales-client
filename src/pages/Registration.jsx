@@ -1,14 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import login from '../../public/images/login.jpg'
 import { AuthContext } from '../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 import { Helmet } from 'react-helmet';
+import { FaTimes } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+
 
 const Registration = () => {
     const { createUser, googleLogIn, setLoading } = useContext(AuthContext)
     const auth = getAuth(app);
+    const [error, setError] = useState("")
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -19,22 +23,23 @@ const Registration = () => {
         const password = form.password.value;
         createUser(email, password)
             .then(result => {
-
+                setError("")
                 form.reset()
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
                 }).then((result) => {
                     setLoading(true)
-                    alert('inside regiistraiton then')
-
-
-                    // return toast.success('User created successfully');
+                    Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                      )
                 }).catch((error) => {
-                    // return toast.error({ error })
+                    // setError(error.message)
                 });
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
             })
     }
 
@@ -47,6 +52,9 @@ const Registration = () => {
                 console.log(error);
             })
     }
+    const handleError = () => {
+        setError(null)
+    }
     return (
         <>
             <Helmet>
@@ -55,8 +63,15 @@ const Registration = () => {
 
             <div className='flex justify-center border  my-4 py-12 '>
 
-                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-l'>
-                    <form onSubmit={handleRegister} className='grid gap-4  py-14 rounded px-4'>
+                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-l py-14 '>
+                <h4 className='text-center text-3xl font-semibold pb-6'>Please Register</h4>
+                    <form onSubmit={handleRegister} className='grid gap-4  rounded px-4'>
+                    {
+                            error && <div className='flex w-full bg-[#570df8] items-center justify-between md:px-6 px-2 text-sm md:text-base rounded'>
+                                <p className=' text-white  py-2 rounded'>{error}</p>
+                                <FaTimes className='text-white cursor-pointer' onClick={handleError}></FaTimes>
+                            </div>
+                        }
                         <input type="text" name='name' placeholder="Your name" className="input border border-gray-300 w-full block" />
                         <input type="email" name='email' placeholder="Email" className="input border border-gray-300 w-full block" />
                         <input type="url" name='photo' placeholder="Photo URL" className="input border border-gray-300 w-full block" />
