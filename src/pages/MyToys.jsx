@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 
+
 const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [myToys, setMyToys] = useState([])
@@ -28,28 +29,37 @@ const MyToys = () => {
                 }
             })
     }
-    const handleDesendingSort = () => {
-        fetch(`http://localhost:5000/my-toy-des/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyToys(data))
-    }
-    const handleAscendingSort = () => {
-        fetch(`http://localhost:5000/my-toy-asc/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyToys(data))
-    }
+   
+
+    // tab codes
+    const [activeTab, setActiveTab] = useState("unsorte");
+    const handleActiveTab = (tabName) => {
+        setActiveTab(tabName);
+        if (tabName == "descending") {
+            fetch(`http://localhost:5000/my-toy-des/${user?.email}`)
+                .then(res => res.json())
+                .then(data => setMyToys(data))
+        } else {
+            fetch(`http://localhost:5000/my-toy-asc/${user?.email}`)
+                .then(res => res.json())
+                .then(data => setMyToys(data))
+        }
+    };
 
 
     return (
         <div>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Your Toys</h4>
-            <div class="tabs">
-                <a class="tab tab-bordered">Tab 1</a>
-                <a class="tab tab-bordered tab-active">Tab 2</a>
-                <a class="tab tab-bordered">Tab 3</a>
+            <div className='flex gap-6 justify-end items-center '>
+                
+                <div className="tabs tabs-boxed items-center justify-center mx-2 px-4 py-4 bg-gray-800 text-white">
+                    <h2 className='md:mr-4 inline-block'>Sort by price: </h2>
+                    <a onClick={() => handleActiveTab("descending")} className={`tab tab-bordered ${activeTab == "descending" ? "tab-active" : " "}`}>Price high to low</a>
+                    <a onClick={() => handleActiveTab("ascending")} className={`tab tab-bordered ${activeTab == "ascending" ? "tab-active" : " "}`}>Price low to high</a>
+
+                </div>
             </div>
-            <button onClick={handleDesendingSort}>Descending order</button>
-            <button onClick={handleAscendingSort}>Ascending order</button>
+
             <div>
                 <div className="overflow-x-auto py-12">
                     <table className="table w-full">

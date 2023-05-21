@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        logo: ['Nunito']
+        logo: ['Nunito'], 
+        fancy: ['Pangolin'], 
+        bubble: ['Bubblegum Sans']
       }
     },
   },
