@@ -23,16 +23,33 @@ const MyToys = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     alert('deleted successfully');
-                    const remaining = myToys.filter(toy => toy._id !== id); 
+                    const remaining = myToys.filter(toy => toy._id !== id);
                     setMyToys(remaining)
                 }
             })
+    }
+    const handleDesendingSort = () => {
+        fetch(`http://localhost:5000/my-toy-des/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyToys(data))
+    }
+    const handleAscendingSort = () => {
+        fetch(`http://localhost:5000/my-toy-asc/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyToys(data))
     }
 
 
     return (
         <div>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Your Toys</h4>
+            <div class="tabs">
+                <a class="tab tab-bordered">Tab 1</a>
+                <a class="tab tab-bordered tab-active">Tab 2</a>
+                <a class="tab tab-bordered">Tab 3</a>
+            </div>
+            <button onClick={handleDesendingSort}>Descending order</button>
+            <button onClick={handleAscendingSort}>Ascending order</button>
             <div>
                 <div className="overflow-x-auto py-12">
                     <table className="table w-full">

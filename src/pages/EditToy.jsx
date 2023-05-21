@@ -10,16 +10,16 @@ const EditToy = () => {
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
-        const toyName = form.toyName.value;
-        const rating = form.rating.value;
-        const subCategory = form.subCategory.value;
+        // const sellerName = form.sellerName.value;
+        // const sellerEmail = form.sellerEmail.value;
+        // const toyName = form.toyName.value;
+        // const rating = form.rating.value;
+        // const subCategory = form.subCategory.value;
         const price = form.price.value;
-        const description = form.description.value;
         const quantity = form.quantity.value;
-        const toyImg = form.toyImg.value;
-        const updatedToyObject = { sellerName, sellerEmail, toyName, toyImg, rating, quantity, subCategory, price, description }
+        const description = form.description.value;
+        // const toyImg = form.toyImg.value;
+        const updatedToyObject = { quantity, price, description }
         console.log(updatedToyObject);
 
         fetch(`http://localhost:5000/toy/${id}`, {
@@ -56,12 +56,12 @@ const EditToy = () => {
                     <input type="url" value={toyImg} name='toyImg' placeholder="Toy URL" className="input border border-gray-300 w-full block " />
                 </div> */}
                 <div className='flex p-2 gap-2'>
-                    <label className='w-1/2'> Price
+                    <label className='w-1/2'> Quantity
                         <input type="text" defaultValue={quantity} name='quantity' placeholder="Update available quantity" className="input border border-gray-300 w-full block" />
                     </label>
 
                     <label className='w-1/2'>
-                        Quantity
+                        Price
                         <input type="number" defaultValue={price} name='price' placeholder="Update price" className="input border border-gray-300 w-full block" />
                     </label>
 

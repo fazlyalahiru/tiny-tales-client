@@ -31,7 +31,7 @@ const AddToy = () => {
         const toyName = form.toyName.value;
         const rating = form.rating.value;
         const subCategory = form.subCategory.value;
-        const price = form.price.value;
+        const price =  parseFloat(form.price.value);
         const description = form.description.value;
         const quantity = form.quantity.value;
         const toyImg = form.toyImg.value;
@@ -48,7 +48,7 @@ const AddToy = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                form.reset()
+                // form.reset()
             })
     }
     return (
@@ -88,7 +88,7 @@ const AddToy = () => {
                         </select>
                     </label> 
                     <label className='w-1/2'>Toy price
-                        <input type="number" name='price'  className="input border border-gray-300 w-full block mt-2" />
+                        <input type="text" name='price'  className="input border border-gray-300 w-full block mt-2" />
                     </label>
                 </div>
 

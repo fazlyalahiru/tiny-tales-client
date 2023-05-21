@@ -9,12 +9,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [activeTab, setActiveTab] = useState("LEGO City");
-    console.log(filteredData);
-
     const handleActiveTab = (tabName) => {
         setActiveTab(tabName);
     };
-    console.log(activeTab);
     useEffect(() => {
         fetch(`http://localhost:5000/all-toys/${activeTab}`)
             .then(res => res.json())
