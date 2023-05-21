@@ -6,6 +6,8 @@ import './Home.css'
 import { Link } from "react-router-dom";
 import hero from '../../public/images/hero.png'
 import { Helmet } from "react-helmet";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Home = () => {
@@ -20,12 +22,17 @@ const Home = () => {
             .then(data => setFilteredData(data))
         // console.log(filteredData);
     }, [activeTab])
+    // AOS setup 
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
         <>
-        <Helmet>
+            <Helmet>
                 <title>Tiny Tales - Home</title>
             </Helmet>
-            <div className="grid grid-cols-3 pt-8">
+            <div className="grid grid-cols-3 pt-8" data-aos="fade-in">
                 <div className="col-span-2 mt-12 px-6">
                     <div className=" h-full flex-col items-center">
                         <h4 className=" font-bubble hero-text">Unleash Your Creativity, <br /> Brick by Brick</h4>
@@ -37,7 +44,7 @@ const Home = () => {
                     <img src={hero} alt="" />
                 </div>
             </div>
-            <div className="px-6 pb-12">
+            <div className="px-6 pb-12" data-aos="fade-in">
                 <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800">TinyTales at a glance</h4>
                 <div className="stats shadow w-full text-center">
 
@@ -61,7 +68,7 @@ const Home = () => {
 
                 </div>
             </div>
-            <div className=" bg-[#e9f8ff] rounded-sm px-6 ">
+            <div className=" bg-[#e9f8ff] rounded-sm px-6 " data-aos="fade-in">
                 <h4 className="text-white text-center pt-12 py-6 font-semibold text-4xl bg-gray-800">Shop By Category</h4>
                 <div className="tabs tabs-boxed justify-center bg-gray-800 border-0">
                     <a onClick={() => handleActiveTab("LEGO City")} className={`tab ${activeTab == "LEGO City" ? "tab-active" : " "}`}>LEGO City</a>
@@ -77,7 +84,7 @@ const Home = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{toy.toyName}</h2>
                                 <p>{toy.description}</p>
-                                <div className="card-actions justify-between items-center">
+                                <div className="card-actions justify-between items-center mt-4 mb-2">
                                     <div className="flex items-center gap-2">
                                         <Rating className='text-orange-600'
                                             placeholderRating={toy.rating}
@@ -88,7 +95,7 @@ const Home = () => {
                                         />
                                         <p className="text-xl">${toy.price}</p>
                                     </div>
-                                    <Link to={`/toy/${toy._id}`} className='bg-gray-800 hover:bg-black text-white px-2 md:px-4 py-1 md:py-2 rounded hidden md:block'>View details<b className="ml-1">➝</b></Link>
+                                    <Link to={`/toy/${toy._id}`} className='bg-[#570df8] hover:bg-black text-white px-2 md:px-4 py-1 md:py-2 rounded hidden md:block'>View details<b className="ml-1">➝</b></Link>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +105,7 @@ const Home = () => {
             </div>
 
 
-            <div className="rounded-sm px-6 ">
+            <div className="rounded-sm px-6 " data-aos="fade-in">
                 <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800 mt-6">Hot Producats</h4>
 
                 <div className="px-5 lg:px-32 lg:pt-12 bg-white py-6">
@@ -146,7 +153,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="pb-12 px-6">
+            <div className="pb-12 px-6" data-aos="fade-in">
                 <h4 className="text-white text-center py-12 font-semibold text-4xl bg-gray-800 mt-6">Our Partners</h4>
                 <div className="carousel carousel-end bg-white px-4 py-6">
                     <div className="carousel-item">

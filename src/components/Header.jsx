@@ -84,7 +84,7 @@ const Header = () => {
 
                         {
                             user ? <div className='flex justify-center items-center gap-4'>
-                                <Link to="/add-toy" className='bg-gray-800 hover:bg-black text-white px-2 md:px-6 py-1 md:py-2 rounded hidden md:block'>Add a toy <b>＋</b></Link>
+                                <Link to="/add-toy" className='bg-[#570df8] hover:bg-black text-white px-2 md:px-6 py-1 md:py-2 rounded hidden md:block'>Add a toy <b>＋</b></Link>
                                 <div className='avatar'>
                                     <div className="w-8 rounded-full">
                                         {user && <img title={user.displayName ? user.displayName : 'No name'} src={user?.photoURL} />}

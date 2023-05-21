@@ -76,7 +76,7 @@ const AddToy = () => {
                 </div>
                 <div className='flex p-2 gap-2'>
                     <label className='w-1/2'> Toy name
-                        <input type="text" name='toyName' className="input border border-gray-300 w-full block mt-2" />
+                        <input type="text" name='toyName' className="input border border-gray-300 w-full block mt-2" required/>
                     </label>
                     <label className='w-1/2'> Rating
                         <input type="number" name='rating'  min="1" step="0.1" max="5" className="input border border-gray-300 w-full block mt-2" />
@@ -99,15 +99,15 @@ const AddToy = () => {
                         </select>
                     </label> 
                     <label className='w-1/2'>Toy price
-                        <input type="text" name='price'  className="input border border-gray-300 w-full block mt-2" />
+                        <input type="text" name='price'  className="input border border-gray-300 w-full block mt-2" required/>
                     </label>
                 </div>
 
                 <div className='flex p-2 gap-2'>
-                    <label className='w-1/2'> Quantity
+                    <label className='w-1/2'> Availabel quantity
                         <input type="text" name='quantity'  className="input border border-gray-300 w-full block mt-2" />
                     </label>
-                    <label className='w-1/2'> URL
+                    <label className='w-1/2'> Photo URL
                         <input type="url" name='toyImg' className="input border border-gray-300 w-full block mt-2" />
                     </label>
                 </div>

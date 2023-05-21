@@ -14,7 +14,6 @@ import EditToy from "../pages/EditToy";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import Blog from "../pages/Blog";
-import Jobs from "../pages/Jobs";
 
 const router = createBrowserRouter([
     {
@@ -58,11 +57,6 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
-            },
-
-            {
-                path: '/jobs',
-                element: <Jobs></Jobs>
             }
         ]
     },
