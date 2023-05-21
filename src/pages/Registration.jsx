@@ -30,7 +30,7 @@ const Registration = () => {
                 }).then((result) => {
                     setLoading(true)
                     Swal.fire(
-                        'Registration success',
+                        'Registration successful',
                         'You clicked the button!',
                         'success'
                       )
@@ -46,7 +46,11 @@ const Registration = () => {
     const handleSignInWithGoogle = () => {
         googleLogIn()
             .then(result => {
-                console.log(result.user);
+                Swal.fire(
+                    'Registration successful',
+                    'Please continue browsing',
+                    'success'
+                  )
             })
             .catch(error => {
                 console.log(error);

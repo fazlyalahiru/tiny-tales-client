@@ -33,14 +33,7 @@ const Header = () => {
         >
             All Toys
         </NavLink>
-        {/* <Link to="/add-toy">
-            <p
-                href="#"
-                className=" hover:bg-gray-700 hover:text-white text-gray-500 px-3 py-2 rounded-md text-sm font-medium"
-            >
-                Add a Toy
-            </p>
-        </Link> */}
+        
 
         <NavLink
             to='/my-toys'
