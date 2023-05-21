@@ -30,7 +30,7 @@ const Registration = () => {
                 }).then((result) => {
                     setLoading(true)
                     Swal.fire(
-                        'Good job!',
+                        'Registration success',
                         'You clicked the button!',
                         'success'
                       )
@@ -61,9 +61,9 @@ const Registration = () => {
                 <title>Tiny Tales - My toys</title>
             </Helmet>
 
-            <div className='flex justify-center border  my-4 py-12 '>
+            <div className='md:flex justify-center border  my-4 py-12 '>
 
-                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-l py-14 '>
+                <div className=' md:w-1/3 grid items-center bg-white shadow md:rounded-l py-14 '>
                 <h4 className='text-center text-3xl font-semibold pb-6'>Please Register</h4>
                     <form onSubmit={handleRegister} className='grid gap-4  rounded px-4'>
                     {
@@ -85,7 +85,7 @@ const Registration = () => {
                         </div>
                     </form>
                 </div>
-                <div className='w-1/3  bg-white shadow md:rounded-r justify-center items-center grid'>
+                <div className='md:w-1/3  bg-white shadow md:rounded-r justify-center items-center grid'>
                     <img src={login} alt="" />
                 </div>
             </div>

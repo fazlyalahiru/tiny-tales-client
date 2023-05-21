@@ -11,7 +11,6 @@ const Login = () => {
     const location = useLocation()
     const [error, setError] = useState("")
     const from = location.state?.from?.pathname || '/';
-    console.log(location);
     const { signIn, googleLogIn } = useContext(AuthContext)
     const handleSignIn = (event) => {
         event.preventDefault()
@@ -26,7 +25,7 @@ const Login = () => {
                 form.reset()
                 navigate(from, { replace: true })
                 Swal.fire(
-                    'Good job!',
+                    'Login Success',
                     'Please continue browsing',
                     'success'
                   )
@@ -41,10 +40,6 @@ const Login = () => {
             .then(result => {
                 form.reset()
                 navigate(from, { replace: true })
-                Swal.fire(
-                    'Login Successful!',
-                    'success'
-                  )
             })
             .catch(error => {
                 setError(error);
@@ -58,11 +53,11 @@ const Login = () => {
             <Helmet>
                 <title>Tiny Tales - Login</title>
             </Helmet>
-            <div className='flex justify-center border my-4 rounded-sm py-12 '>
-                <div className='w-1/3 bg-white justify-center items-center grid shadow md:rounded-l'>
+            <div className='md:flex justify-center border my-4 rounded-sm py-12 '>
+                <div className='md:w-1/3 bg-white justify-center items-center grid shadow md:rounded-l'>
                     <img src={login} alt="" />
                 </div>
-                <div className=' w-1/3 grid items-center bg-white shadow md:rounded-r py-14 '>
+                <div className=' md:w-1/3 grid items-center bg-white shadow md:rounded-r py-14 '>
                     <h4 className='text-center text-3xl font-semibold pb-6'>Please login</h4>
                     <form onSubmit={handleSignIn} className='grid gap-4  rounded px-4'>
                         {
