@@ -14,16 +14,17 @@ const Home = () => {
         setActiveTab(tabName);
     };
     useEffect(() => {
-        fetch(`http://localhost:5000/all-toys/${activeTab}`)
+        fetch(`http://localhost:5000/filtered-toys/${activeTab}`)
             .then(res => res.json())
             .then(data => setFilteredData(data))
+            // console.log(filteredData);
     }, [activeTab])
     return (
         <>
             <div className="grid grid-cols-3 pt-8">
                 <div className="col-span-2 mt-12 px-6">
                     <div className=" h-full flex-col items-center">
-                        <h4 className="text-5xl font-extrabold uppercase font-bubble ">Unleash Your Creativity, <br /> Brick by Brick</h4>
+                        <h4 className=" font-bubble hero-text">Unleash Your Creativity, <br /> Brick by Brick</h4>
                         <p className="my-6 font-semibold text-lg">Tiny Tales provides amazing LEGO toys for your beloved baby! </p>
                         <Link to="/add-toy" className='bg-[#570df8] hover:bg-black text-white px-2 md:px-6 py-1 md:py-2 rounded'>All Products</Link>
                     </div>

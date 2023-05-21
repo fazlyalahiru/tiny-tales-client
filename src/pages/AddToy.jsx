@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     // dropdown select option starts
@@ -47,7 +48,13 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if(data.insertedId){
+                    Swal.fire(
+                        'Yahooo!',
+                        'Toy added successfully',
+                        'success'
+                      )
+                }
                 // form.reset()
             })
     }

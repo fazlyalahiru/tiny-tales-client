@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const MyToys = () => {
@@ -17,19 +18,36 @@ const MyToys = () => {
 
     const handleDeleteToy = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/toy/${id}`, {
-            method: 'DELETE'
+        Swal.fire({
+            title: 'Want to delete the toy?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#570df8',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toy/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'success'
+                            )
+                            const remaining = myToys.filter(toy => toy._id !== id);
+                            setMyToys(remaining)
+                        }
+                    })
+
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    alert('deleted successfully');
-                    const remaining = myToys.filter(toy => toy._id !== id);
-                    setMyToys(remaining)
-                }
-            })
+
     }
-   
+
 
     // tab codes
     const [activeTab, setActiveTab] = useState("unsorte");
@@ -51,7 +69,7 @@ const MyToys = () => {
         <div>
             <h4 className='text-center font-logo text-3xl font-bold uppercase py-8'>Your Toys</h4>
             <div className='flex gap-6 justify-end items-center '>
-                
+
                 <div className="tabs tabs-boxed items-center justify-center mx-2 px-4 py-4 bg-gray-800 text-white">
                     <h2 className='md:mr-4 inline-block'>Sort by price: </h2>
                     <a onClick={() => handleActiveTab("descending")} className={`tab tab-bordered ${activeTab == "descending" ? "tab-active" : " "}`}>Price high to low</a>
