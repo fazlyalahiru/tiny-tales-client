@@ -62,7 +62,7 @@ const MyToys = () => {
                                         <div className='flex gap-4'>
                                             <div>
                                                 <Link to={`/edit-toy/${toy._id}`}>
-                                                    <button className='text-[#00d1b2]'>Edit</button>
+                                                    <button className='text-[#570df8]'>Edit</button>
                                                 </Link>
                                             </div>
                                             <div>

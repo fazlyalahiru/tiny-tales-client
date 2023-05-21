@@ -22,10 +22,10 @@ const ToyDetails = () => {
                     placeholderSymbol={<FaStar></FaStar>}
                     fullSymbol={<FaStar></FaStar>}
                 />
-                <h3 className='text-5xl font-logo font-bold'>{toyName}</h3>
-                <p className='text-[#00d1b2] text-2xl font-semibold py-2'>${price}.00</p>
+                <h3 className='text-3xl font-logo font-bold'>{toyName}</h3>
+                <p className='text-[#570df8] text-2xl font-semibold py-2'>${price}.00</p>
                 <p>{description}</p>
-                <button className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded my-4'>Order now</button>
+                <button className='bg-[#570df8] text-white px-2 md:px-6 py-1 md:py-2 rounded my-4'>Order now</button>
 
                 <p className='text-gray-500'>Category: {subCategory}</p>
                 <p className='text-gray-500'>Stock: {quantity}</p>

@@ -15,15 +15,15 @@ const AllToys = () => {
                 <div className="overflow-x-auto py-12">
                     <table className="table w-full">
                         {/* head */}
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Seller</th>
-                                <th>Toy Name</th>
-                                <th>Sub-category</th>
-                                <th>Price</th>
-                                <th>Available Quantity</th>
-                                <th>Action</th>
+                        <thead >
+                            <tr >
+                                <th className='bg-gray-800 text-white'>No.</th>
+                                <th className='bg-gray-800 text-white'>Seller</th>
+                                <th className='bg-gray-800 text-white'>Toy Name</th>
+                                <th className='bg-gray-800 text-white'>Sub-category</th>
+                                <th className='bg-gray-800 text-white'>Price</th>
+                                <th className='bg-gray-800 text-white'>Available Quantity</th>
+                                <th className='bg-gray-800 text-white'>Action</th>
                             </tr>
                         </thead>
                         <tbody>

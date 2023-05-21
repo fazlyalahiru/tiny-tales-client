@@ -1,6 +1,9 @@
 
 import React, { useEffect, useState } from "react";
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 import './Home.css'
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -32,9 +35,19 @@ const Home = () => {
                         <figure><img className="h-64" src={toy.toyImg} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{toy.toyName}</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                            <p>{toy.description}</p>
+                            <div className="card-actions justify-between items-center">
+                                <div className="flex items-center gap-2">
+                                    <Rating className='text-orange-600'
+                                        placeholderRating={toy.rating}
+                                        readonly
+                                        emptySymbol={<FaRegStar></FaRegStar>}
+                                        placeholderSymbol={<FaStar></FaStar>}
+                                        fullSymbol={<FaStar></FaStar>}
+                                    />
+                                    <p className="text-xl">${toy.price}</p>
+                                </div>
+                                <Link to={`/toy/${toy._id}`} className='bg-gray-800 hover:bg-black text-white px-2 md:px-4 py-1 md:py-2 rounded hidden md:block'>View details<b className="ml-1">➝</b></Link>
                             </div>
                         </div>
                     </div>

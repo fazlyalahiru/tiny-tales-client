@@ -12,11 +12,11 @@ const ErrorPage = () => {
                 <div className='max-w-md text-center'>
 
                     <img className='w-72' src={errorImg} alt="" />
-                    <p className='text-2xl font-semibold md:text-xl text-red-[#60e4a9]'>
+                    <p className='text-2xl font-semibold md:text-xl text-red-[#570df8]'>
                         {error?.message}
                     </p>
                     <Link to='/'>
-                        <button className='hover:bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded uppercase bg-black my-4'>Back to homepage</button>
+                        <button className='hover:bg-[#570df8] text-white px-2 md:px-6 py-1 md:py-2 rounded uppercase bg-black my-4'>Back to homepage</button>
                     </Link>
 
                 </div>

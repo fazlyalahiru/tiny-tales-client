@@ -90,9 +90,9 @@ const Header = () => {
                                         {user && <img title={user.displayName ? user.displayName : 'No name'} src={user?.photoURL} />}
                                     </div>
                                 </div>
-                                <FaSignOutAlt title='Logout' onClick={handleLogOut} className='cursor-pointer text-[#00d1b2]'></FaSignOutAlt>
+                                <FaSignOutAlt title='Logout' onClick={handleLogOut} className='cursor-pointer text-[#570df8]'></FaSignOutAlt>
                             </div> : <Link to='/login'>
-                                <button className='bg-[#00d1b2] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
+                                <button className='bg-[#570df8] text-white px-2 md:px-6 py-1 md:py-2 rounded'>LogIn</button>
                             </Link>
 
 
